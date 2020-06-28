@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_hack/match_generator.dart';
 import 'package:flutter_hack/custom_option.dart';
 import 'package:flutter_hack/success_page.dart';
@@ -87,13 +86,6 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Stack(
         children: <Widget>[
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 150, vertical: 180),
-            child: Text(
-              counter.toString(),
-              style: TextStyle(fontSize: 200,color: Colors.deepPurple,),
-            ),
-          ),
           Opacity(
             opacity: 0.85,
             child: Container(
@@ -101,6 +93,18 @@ class _HomePageState extends State<HomePage> {
                 image: DecorationImage(
                   image: AssetImage("assets/images/bgw.jpeg"),
                   fit: BoxFit.fitHeight,
+                ),
+              ),
+            ),
+          ),
+          Opacity(
+            opacity: 0.4,
+            child: Center(
+              child: Text(
+                counter.toString(),
+                style: TextStyle(
+                  fontSize: 200,
+                  color: Colors.greenAccent,
                 ),
               ),
             ),

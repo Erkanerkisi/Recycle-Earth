@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hack/home.dart';
-
+import 'package:flutter_hack/start_page.dart';
 void main() {
   runApp(MyApp());
 }
@@ -9,7 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      home: StartPage(),
     );
   }
 }
