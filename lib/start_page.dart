@@ -9,23 +9,23 @@ class StartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green,
+      backgroundColor: Colors.white,
       body: Stack(children: <Widget>[
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             Container(
-                padding: EdgeInsets.only(left: 20, right: 20),
+                padding: EdgeInsets.only(left: 20, right: 20, top: 100),
                 child: Text(
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum. In culpa qui officia deserunt mollit anim id est laborum.",
-                  style: TextStyle(fontSize: 20, color: Colors.yellowAccent),
+                  "You are the doctor of nature. How about returning waste? Separate the trash. Join the recycling!",
+                  style: TextStyle(fontSize: 20, color: Colors.greenAccent),
                 )),
             Container(
               width: 200,
               height: 200,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("assets/images/giphy.gif"),
+                  image: AssetImage("assets/images/basket.gif"),
                   fit: BoxFit.none,
                 ),
               ),
@@ -45,7 +45,7 @@ class StartPage extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => HomePage()),
                   );
                 },
-                color: Colors.red,
+                color: Colors.greenAccent,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(18.0),
                     side: BorderSide(color: Colors.red)),
