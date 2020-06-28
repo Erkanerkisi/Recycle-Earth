@@ -105,6 +105,62 @@ class MatchGenerator {
                 isRight: false,
                 keyVal: _trashThirdKey3),
           ],
+          isRight: false),
+      Match(
+          matchImage: CustomImage(image: "toothpaste.png"),
+          options: [
+            CustomOption(ci: CustomImage(image: "paper_trash.png",),
+                isRight: false,
+                keyVal: _trashFirstKey3),
+            CustomOption(ci: CustomImage(image: "plastic_trash.png",),
+                isRight: true,
+                keyVal: _trashSecondKey3),
+            CustomOption(ci: CustomImage(image: "metal_trash.png",),
+                isRight: false,
+                keyVal: _trashThirdKey3),
+          ],
+          isRight: false),
+      Match(
+          matchImage: CustomImage(image: "cattle.png"),
+          options: [
+            CustomOption(ci: CustomImage(image: "paper_trash.png",),
+                isRight: false,
+                keyVal: _trashFirstKey3),
+            CustomOption(ci: CustomImage(image: "plastic_trash.png",),
+                isRight: false,
+                keyVal: _trashSecondKey3),
+            CustomOption(ci: CustomImage(image: "metal_trash.png",),
+                isRight: true,
+                keyVal: _trashThirdKey3),
+          ],
+          isRight: false),
+      Match(
+          matchImage: CustomImage(image: "coffee.png"),
+          options: [
+            CustomOption(ci: CustomImage(image: "paper_trash.png",),
+                isRight: true,
+                keyVal: _trashFirstKey3),
+            CustomOption(ci: CustomImage(image: "plastic_trash.png",),
+                isRight: false,
+                keyVal: _trashSecondKey3),
+            CustomOption(ci: CustomImage(image: "metal_trash.png",),
+                isRight: false,
+                keyVal: _trashThirdKey3),
+          ],
+          isRight: false),
+      Match(
+          matchImage: CustomImage(image: "coke.png"),
+          options: [
+            CustomOption(ci: CustomImage(image: "paper_trash.png",),
+                isRight: false,
+                keyVal: _trashFirstKey3),
+            CustomOption(ci: CustomImage(image: "plastic_trash.png",),
+                isRight: false,
+                keyVal: _trashSecondKey3),
+            CustomOption(ci: CustomImage(image: "metal_trash.png",),
+                isRight: true,
+                keyVal: _trashThirdKey3),
+          ],
           isRight: false)
     ];
   }

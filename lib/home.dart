@@ -90,11 +90,10 @@ class _HomePageState extends State<HomePage> {
             opacity: 0.85,
             child: Container(
               decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("assets/images/bgw.jpeg"),
-                  fit: BoxFit.fitHeight,
-                ),
-              ),
+                  gradient: LinearGradient(
+                      begin: Alignment.topRight,
+                      end: Alignment.bottomLeft,
+                      colors: [Colors.blue, Colors.green])),
             ),
           ),
           Opacity(

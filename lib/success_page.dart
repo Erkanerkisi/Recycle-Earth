@@ -6,7 +6,7 @@ class SuccessPage extends StatelessWidget {
     return Center(
       child: Icon(
         Icons.check,
-        color: Colors.lightGreenAccent,
+        color: Colors.lightGreen,
         size: 400,
       ),
     );
