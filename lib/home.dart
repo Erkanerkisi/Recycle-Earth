@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hack/match_generator.dart';
 import 'package:flutter_hack/custom_icon.dart';
+import 'package:flutter_hack/success_page.dart';
+import 'package:audioplayers/audio_cache.dart';
+import 'package:audioplayers/audioplayers.dart';
+
+import 'error_page.dart';
+
+
 
 class HomePage extends StatefulWidget {
   @override
@@ -13,6 +20,9 @@ class _HomePageState extends State<HomePage> {
   int counter = 0;
   Match match;
   MatchGenerator _matchGenerator;
+  bool _visibleSuccessPage = false;
+  bool _visibleErrorPage = false;
+
 
   @override
   void initState() {
@@ -22,9 +32,16 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  Future<AudioPlayer> playLocalAsset() async {
+    AudioCache cache = new AudioCache();
+    return await cache.play("audio/correct_answer.mp3");
+  }
+
   checkDragIsSuccess(var dragDetails, BuildContext currentContext) {
+    bool isCorrectAnswer= false;
+
     for (CustomIcon cs in match.options) {
-      RenderBox box = cs.key.currentContext.findRenderObject();
+      RenderBox box = cs.keyVal.currentContext.findRenderObject();
       Offset position = box.localToGlobal(Offset.zero);
       if (cs.isRight &&
           position.dx - _offsetAdjustmentx < dragDetails.offset.dx &&
@@ -34,8 +51,17 @@ class _HomePageState extends State<HomePage> {
         setState(() {
           match = _matchGenerator.getRandomMatch();
           counter++;
+          _visibleSuccessPage = true;
+          playLocalAsset();
         });
+        isCorrectAnswer = true;
       }
+    }
+    if(!isCorrectAnswer){
+      setState(() {
+        _visibleErrorPage = true;
+        playLocalAsset();
+      });
     }
   }
 
@@ -55,34 +81,54 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Center(child: Text(counter.toString())),
       ),
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      body: Stack(
         children: <Widget>[
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Draggable(
-                child: Container(
-                  margin: EdgeInsets.only(left: 30.0),
-                  child: match.matchIcon,
-                ),
-                feedback: Container(
-                  margin: EdgeInsets.only(left: 30.0),
-                  child: match.matchIcon,
-                ),
-                onDragCompleted: () {
-                  print("Drag comp");
-                },
-                onDragEnd: (dragDetails) {
-                  checkDragIsSuccess(dragDetails, context);
-                },
-                childWhenDragging: Container(),
-              ),
-            ],
+          AnimatedOpacity(
+            child: SuccessPage(),
+            opacity: _visibleSuccessPage ? 1.0 : 0.0,
+            duration: Duration(milliseconds: 500),
+            onEnd: (){setState(() {
+              _visibleSuccessPage = false;
+            });},
           ),
-          Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: getOptions())
+          AnimatedOpacity(
+            child: ErrorPage(),
+            opacity: _visibleErrorPage ? 1.0 : 0.0,
+            duration: Duration(milliseconds: 500),
+            onEnd: (){setState(() {
+              _visibleErrorPage = false;
+            });},
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Draggable(
+                    child: Container(
+                      margin: EdgeInsets.only(left: 30.0),
+                      child: match.matchIcon,
+                    ),
+                    feedback: Container(
+                      margin: EdgeInsets.only(left: 30.0),
+                      child: match.matchIcon,
+                    ),
+                    onDragCompleted: () {
+                      print("Drag comp");
+                    },
+                    onDragEnd: (dragDetails) {
+                      checkDragIsSuccess(dragDetails, context);
+                    },
+                    childWhenDragging: Container(),
+                  ),
+                ],
+              ),
+              Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: getOptions())
+            ],
+          )
         ],
       ),
     );
