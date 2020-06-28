@@ -9,6 +9,11 @@ class StartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Center(child: Text("PandemicKillers")),
+        backgroundColor: Colors.teal,
+        elevation: 10,
+      ),
       backgroundColor: Colors.white,
       body: Stack(children: <Widget>[
         Column(
