@@ -32,9 +32,14 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  Future<AudioPlayer> playLocalAsset() async {
+  Future<AudioPlayer> playSuccessAnswer() async {
     AudioCache cache = new AudioCache();
     return await cache.play("audio/correct_answer.mp3");
+  }
+
+  Future<AudioPlayer> playWrongAnswer() async {
+    AudioCache cache = new AudioCache();
+    return await cache.play("audio/wrong_answer.mp3");
   }
 
   checkDragIsSuccess(var dragDetails, BuildContext currentContext) {
@@ -52,7 +57,7 @@ class _HomePageState extends State<HomePage> {
           match = _matchGenerator.getRandomMatch();
           counter++;
           _visibleSuccessPage = true;
-          playLocalAsset();
+          playSuccessAnswer();
         });
         isCorrectAnswer = true;
       }
@@ -60,7 +65,7 @@ class _HomePageState extends State<HomePage> {
     if(!isCorrectAnswer){
       setState(() {
         _visibleErrorPage = true;
-        playLocalAsset();
+        playWrongAnswer();
       });
     }
   }
