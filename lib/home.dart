@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> {
             margin: EdgeInsets.only(left: 30,top: 20),
             child: Text(
               counter.toString(),
-              style: TextStyle(fontSize: 75,color: Colors.deepPurple),
+              style: TextStyle(fontSize: 75,color: Colors.deepPurple,),
             ),
           ),
           Opacity(
