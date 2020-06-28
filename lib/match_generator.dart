@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hack/custom_icon.dart';
+import 'package:flutter_hack/custom_option.dart';
 import "dart:math";
+
+import 'package:flutter_hack/custom_image.dart';
 
 class MatchGenerator {
   static final _trashFirstKey = GlobalKey();
@@ -21,82 +23,86 @@ class MatchGenerator {
   MatchGenerator() {
     mockData = [
       Match(
-          matchIcon: Icon(
-            Icons.email,
-            size: 50,
-          ),
+          matchImage: CustomImage(image: "bottle.png"),
           options: [
-            CustomIcon(
-                icon: Icon(Icons.restore_from_trash, size: 50),
+            CustomOption(ci: CustomImage(image: "plastic_trash.png",),
                 isRight: true,
                 keyVal: _trashFirstKey),
-            CustomIcon(
-                icon: Icon(Icons.attach_money, size: 50),
+            CustomOption(ci: CustomImage(image: "metal_trash.png",),
                 isRight: false,
                 keyVal: _trashSecondKey),
-            CustomIcon(
-                icon: Icon(Icons.save, size: 50),
+            CustomOption(ci: CustomImage(image: "paper_trash.png",),
                 isRight: false,
                 keyVal: _trashThirdKey),
           ],
           isRight: false),
       Match(
-          matchIcon: Icon(
-            Icons.dashboard,
-            size: 50,
-          ),
+          matchImage: CustomImage(image: "dz.png"),
           options: [
-            CustomIcon(
-                icon: Icon(Icons.accessible, size: 50),
-                isRight: false,
-                keyVal: _trashFirstKey1),
-            CustomIcon(
-                icon: Icon(Icons.list, size: 50),
-                isRight: true,
-                keyVal: _trashSecondKey1),
-            CustomIcon(
-                icon: Icon(Icons.add_circle, size: 50),
-                isRight: false,
-                keyVal: _trashThirdKey1),
-          ],
-          isRight: false),
-      Match(
-          matchIcon: Icon(
-            Icons.check,
-            size: 50,
-          ),
-          options: [
-            CustomIcon(
-                icon: Icon(Icons.add_to_photos, size: 50),
+            CustomOption(ci: CustomImage(image: "paper_trash.png",),
                 isRight: false,
                 keyVal: _trashFirstKey2),
-            CustomIcon(
-                icon: Icon(Icons.archive, size: 50),
-                isRight: true,
-                keyVal: _trashSecondKey2),
-            CustomIcon(
-                icon: Icon(Icons.save, size: 50),
+            CustomOption(ci: CustomImage(image: "metal_trash.png",),
                 isRight: false,
+                keyVal: _trashSecondKey2),
+            CustomOption(ci: CustomImage(image: "plastic_trash.png",),
+                isRight: true,
                 keyVal: _trashThirdKey2),
           ],
           isRight: false),
       Match(
-          matchIcon: Icon(
-            Icons.share,
-            size: 50,
-          ),
+          matchImage: CustomImage(image: "paper.png"),
           options: [
-            CustomIcon(
-                icon: Icon(Icons.restore_from_trash, size: 50),
+            CustomOption(ci: CustomImage(image: "plastic_trash.png",),
                 isRight: false,
                 keyVal: _trashFirstKey3),
-            CustomIcon(
-                icon: Icon(Icons.layers_clear, size: 50),
+            CustomOption(ci: CustomImage(image: "paper_trash.png",),
+                isRight: true,
+                keyVal: _trashSecondKey3),
+            CustomOption(ci: CustomImage(image: "metal_trash.png",),
+                isRight: false,
+                keyVal: _trashThirdKey3),
+          ],
+          isRight: false),
+      Match(
+          matchImage: CustomImage(image: "phone.png"),
+          options: [
+            CustomOption(ci: CustomImage(image: "plastic_trash.png",),
+                isRight: false,
+                keyVal: _trashFirstKey3),
+            CustomOption(ci: CustomImage(image: "paper_trash.png",),
                 isRight: false,
                 keyVal: _trashSecondKey3),
-            CustomIcon(
-                icon: Icon(Icons.pie_chart, size: 50),
+            CustomOption(ci: CustomImage(image: "metal_trash.png",),
                 isRight: true,
+                keyVal: _trashThirdKey3),
+          ],
+          isRight: false),
+      Match(
+          matchImage: CustomImage(image: "gloves.png"),
+          options: [
+            CustomOption(ci: CustomImage(image: "plastic_trash.png",),
+                isRight: true,
+                keyVal: _trashFirstKey3),
+            CustomOption(ci: CustomImage(image: "paper_trash.png",),
+                isRight: false,
+                keyVal: _trashSecondKey3),
+            CustomOption(ci: CustomImage(image: "metal_trash.png",),
+                isRight: false,
+                keyVal: _trashThirdKey3),
+          ],
+          isRight: false),
+      Match(
+          matchImage: CustomImage(image: "mask2.png"),
+          options: [
+            CustomOption(ci: CustomImage(image: "paper_trash.png",),
+                isRight: false,
+                keyVal: _trashFirstKey3),
+            CustomOption(ci: CustomImage(image: "plastic_trash.png",),
+                isRight: true,
+                keyVal: _trashSecondKey3),
+            CustomOption(ci: CustomImage(image: "metal_trash.png",),
+                isRight: false,
                 keyVal: _trashThirdKey3),
           ],
           isRight: false)
@@ -111,9 +117,9 @@ class MatchGenerator {
 }
 
 class Match {
-  Icon matchIcon;
-  List<CustomIcon> options;
+  CustomImage matchImage;
+  List<CustomOption> options;
   bool isRight;
 
-  Match({this.matchIcon, this.options, this.isRight});
+  Match({this.matchImage, this.options, this.isRight});
 }

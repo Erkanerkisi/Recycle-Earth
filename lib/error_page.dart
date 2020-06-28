@@ -7,7 +7,7 @@ class ErrorPage extends StatelessWidget {
       child: Icon(
         Icons.clear,
         color: Colors.red,
-        size: 300,
+        size: 400,
       ),
     );
   }

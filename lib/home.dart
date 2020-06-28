@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_hack/match_generator.dart';
-import 'package:flutter_hack/custom_icon.dart';
+import 'package:flutter_hack/custom_option.dart';
 import 'package:flutter_hack/success_page.dart';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
-
 import 'error_page.dart';
-
-
 
 class HomePage extends StatefulWidget {
   @override
@@ -22,7 +20,6 @@ class _HomePageState extends State<HomePage> {
   MatchGenerator _matchGenerator;
   bool _visibleSuccessPage = false;
   bool _visibleErrorPage = false;
-
 
   @override
   void initState() {
@@ -43,9 +40,9 @@ class _HomePageState extends State<HomePage> {
   }
 
   checkDragIsSuccess(var dragDetails, BuildContext currentContext) {
-    bool isCorrectAnswer= false;
+    bool isCorrectAnswer = false;
 
-    for (CustomIcon cs in match.options) {
+    for (CustomOption cs in match.options) {
       RenderBox box = cs.keyVal.currentContext.findRenderObject();
       Offset position = box.localToGlobal(Offset.zero);
       if (cs.isRight &&
@@ -62,7 +59,7 @@ class _HomePageState extends State<HomePage> {
         isCorrectAnswer = true;
       }
     }
-    if(!isCorrectAnswer){
+    if (!isCorrectAnswer) {
       setState(() {
         _visibleErrorPage = true;
         playWrongAnswer();
@@ -84,25 +81,49 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text(counter.toString())),
+        title: Center(child: Text("PandemicKillers")),
+        backgroundColor: Colors.teal,
+        elevation: 10,
       ),
       body: Stack(
         children: <Widget>[
-          AnimatedOpacity(
-            child: SuccessPage(),
-            opacity: _visibleSuccessPage ? 1.0 : 0.0,
-            duration: Duration(milliseconds: 500),
-            onEnd: (){setState(() {
-              _visibleSuccessPage = false;
-            });},
+          Container(
+            margin: EdgeInsets.only(left: 30,top: 20),
+            child: Text(
+              counter.toString(),
+              style: TextStyle(fontSize: 75,color: Colors.deepPurple),
+            ),
+          ),
+          Opacity(
+            opacity: 0.45,
+            child: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/images/corona.jpg"),
+                  fit: BoxFit.fitHeight,
+                ),
+              ),
+            ),
           ),
           AnimatedOpacity(
             child: ErrorPage(),
             opacity: _visibleErrorPage ? 1.0 : 0.0,
             duration: Duration(milliseconds: 500),
-            onEnd: (){setState(() {
-              _visibleErrorPage = false;
-            });},
+            onEnd: () {
+              setState(() {
+                _visibleErrorPage = false;
+              });
+            },
+          ),
+          AnimatedOpacity(
+            child: SuccessPage(),
+            opacity: _visibleSuccessPage ? 1.0 : 0.0,
+            duration: Duration(milliseconds: 500),
+            onEnd: () {
+              setState(() {
+                _visibleSuccessPage = false;
+              });
+            },
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -113,11 +134,11 @@ class _HomePageState extends State<HomePage> {
                   Draggable(
                     child: Container(
                       margin: EdgeInsets.only(left: 30.0),
-                      child: match.matchIcon,
+                      child: match.matchImage,
                     ),
                     feedback: Container(
                       margin: EdgeInsets.only(left: 30.0),
-                      child: match.matchIcon,
+                      child: match.matchImage,
                     ),
                     onDragCompleted: () {
                       print("Drag comp");
