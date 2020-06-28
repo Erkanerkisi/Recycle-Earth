@@ -88,18 +88,18 @@ class _HomePageState extends State<HomePage> {
       body: Stack(
         children: <Widget>[
           Container(
-            margin: EdgeInsets.only(left: 30,top: 20),
+            margin: EdgeInsets.symmetric(horizontal: 150, vertical: 180),
             child: Text(
               counter.toString(),
-              style: TextStyle(fontSize: 75,color: Colors.deepPurple,),
+              style: TextStyle(fontSize: 200,color: Colors.deepPurple,),
             ),
           ),
           Opacity(
-            opacity: 0.45,
+            opacity: 0.85,
             child: Container(
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("assets/images/corona.jpg"),
+                  image: AssetImage("assets/images/bgw.jpeg"),
                   fit: BoxFit.fitHeight,
                 ),
               ),
