@@ -15,14 +15,8 @@ class StartPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             Container(
-                padding: EdgeInsets.only(left: 20, right: 20, top: 100),
-                child: Text(
-                  "You are the doctor of nature. How about returning waste? Separate the trash. Join the recycling!",
-                  style: TextStyle(fontSize: 20, color: Colors.greenAccent),
-                )),
-            Container(
               width: 200,
-              height: 200,
+              height: 300,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage("assets/images/basket.gif"),
@@ -30,6 +24,12 @@ class StartPage extends StatelessWidget {
                 ),
               ),
             ),
+            Container(
+                padding: EdgeInsets.only(left: 20, right: 20),
+                child: Text(
+                  "You are the doctor of nature.\nHow about returning waste? \nSeparate the trash. \nJoin the recycling!",
+                  style: TextStyle(fontSize: 20, color: Colors.greenAccent),
+                )),
             Center(
               child: FlatButton(
                 child: Container(
@@ -47,8 +47,8 @@ class StartPage extends StatelessWidget {
                 },
                 color: Colors.greenAccent,
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18.0),
-                    side: BorderSide(color: Colors.red)),
+                    borderRadius: BorderRadius.circular(100),
+                    side: BorderSide(color: Colors.greenAccent)),
               ),
             )
           ],
