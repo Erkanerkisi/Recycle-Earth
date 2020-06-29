@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hack/info_page.dart';
 
 import 'home.dart';
 
@@ -55,7 +56,28 @@ class StartPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(100),
                     side: BorderSide(color: Colors.greenAccent)),
               ),
-            )
+            ),
+            Center(
+              child: FlatButton(
+                child: Container(
+                  padding: EdgeInsets.only(left: 40,right: 40,top: 10,bottom: 10),
+                  child: Text(
+                    "Guide",
+                    style: TextStyle(fontSize: 25, color: Colors.white),
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => InfoPage()),
+                  );
+                },
+                color: Colors.pinkAccent,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(100),
+                    side: BorderSide(color: Colors.greenAccent)),
+              ),
+            ),
           ],
         ),
       ]),

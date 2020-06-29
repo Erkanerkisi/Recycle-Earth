@@ -45,15 +45,12 @@ class InfoPage extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.all(10),
                   child: Text(
-                    "Get Started",
+                    "Get Back",
                     style: TextStyle(fontSize: 25, color: Colors.white),
                   ),
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => StartPage()),
-                  );
+                  Navigator.pop(context);
                 },
                 color: Colors.greenAccent,
                 shape: RoundedRectangleBorder(
