@@ -168,7 +168,9 @@ class MatchGenerator {
   final _random = new Random();
 
   Match getRandomMatch() {
-    return mockData[_random.nextInt(mockData.length)];
+    Match match = mockData[_random.nextInt(mockData.length)];
+    match.options.shuffle();
+    return match;
   }
 }
 
