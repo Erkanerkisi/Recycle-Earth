@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hack/info_page2.dart';
+import 'package:flutter_hack/start_page.dart';
 
 
 import 'home.dart';
 
-class InfoPage extends StatelessWidget {
+class InfoPage2 extends StatelessWidget {
 
 
   @override
@@ -23,7 +23,7 @@ class InfoPage extends StatelessWidget {
           children: <Widget>[
             Container(
               width: 200,
-              height: 300,
+              height: 420,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage("assets/images/blue.gif"),
@@ -33,10 +33,7 @@ class InfoPage extends StatelessWidget {
             ),
             Container(
                 padding: EdgeInsets.only(left: 20, right: 20),
-                child: Text(
-                  "You are the doctor of nature.\nHow about returning waste? \nSeparate the trash. \nJoin the recycling!",
-                  style: TextStyle(fontSize: 20, color: Colors.greenAccent),
-                )),
+                ),
             Center(
               child: FlatButton(
                 child: Container(
