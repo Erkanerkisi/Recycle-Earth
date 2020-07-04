@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hack/end_game_page.dart';
 import 'package:flutter_hack/match_generator.dart';
 import 'package:flutter_hack/custom_option.dart';
 import 'package:flutter_hack/success_page.dart';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'error_page.dart';
+import 'health_stick.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -19,6 +21,8 @@ class _HomePageState extends State<HomePage> {
   MatchGenerator _matchGenerator;
   bool _visibleSuccessPage = false;
   bool _visibleErrorPage = false;
+  int remainingHealth = 100;
+  int totalHealth = 100;
 
   @override
   void initState() {
@@ -61,8 +65,19 @@ class _HomePageState extends State<HomePage> {
     if (!isCorrectAnswer) {
       setState(() {
         _visibleErrorPage = true;
+        remainingHealth = remainingHealth - 20;
         playWrongAnswer();
       });
+      if (remainingHealth < 10) {
+
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => EndGamePage(
+                    score: counter,
+                  )),
+        );
+      }
     }
   }
 
@@ -81,21 +96,12 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text("PandemicKillers"),
-        backgroundColor: Colors.teal,
+        backgroundColor: Colors.indigo,
         elevation: 10,
       ),
+      backgroundColor: const Color(0xff21315a),
       body: Stack(
         children: <Widget>[
-          Opacity(
-            opacity: 0.85,
-            child: Container(
-              decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topRight,
-                      end: Alignment.bottomLeft,
-                      colors: [Colors.blue, Colors.green])),
-            ),
-          ),
           Opacity(
             opacity: 0.4,
             child: Center(
@@ -127,6 +133,24 @@ class _HomePageState extends State<HomePage> {
                 _visibleSuccessPage = false;
               });
             },
+          ),
+          Container(
+            margin: EdgeInsets.only(left: 5, top: 10),
+            child: Row(
+              children: <Widget>[
+                Text(
+                  "Health:   ",
+                  style: TextStyle(color: Colors.white, fontSize: 15),
+                ),
+                HealthStick(
+                  life: totalHealth,
+                  remaining: remainingHealth,
+                  duration: 350,
+                  barHeight: 20,
+                  barRadius: 7,
+                ),
+              ],
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
