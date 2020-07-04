@@ -157,7 +157,7 @@ class _HomePageState extends State<HomePage> {
                   barRadius: 7,
                 ),
                 Text(
-                  "Time:   $_start",
+                  "   Time: $_start",
                   style: TextStyle(color: Colors.white, fontSize: 15),
                 ),
               ],

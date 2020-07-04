@@ -5,21 +5,21 @@ import "dart:math";
 import 'package:flutter_hack/custom_image.dart';
 
 class MatchGenerator {
-  static final _trashFirstKey = GlobalKey();
-  static final _trashSecondKey = GlobalKey();
-  static final _trashThirdKey = GlobalKey();
-  static final _trashFirstKey1 = GlobalKey();
-  static final _trashSecondKey1 = GlobalKey();
-  static final _trashThirdKey1 = GlobalKey();
-  static final _trashFirstKey2 = GlobalKey();
-  static final _trashSecondKey2 = GlobalKey();
-  static final _trashThirdKey2 = GlobalKey();
-  static final _trashFirstKey3 = GlobalKey();
-  static final _trashSecondKey3 = GlobalKey();
-  static final _trashThirdKey3 = GlobalKey();
 
+  GlobalKey _trashFirstKey = GlobalKey();
+  GlobalKey _trashSecondKey = GlobalKey();
+  GlobalKey _trashThirdKey = GlobalKey();
+  GlobalKey _trashFirstKey1 = GlobalKey();
+  GlobalKey _trashSecondKey1 = GlobalKey();
+  GlobalKey _trashThirdKey1 = GlobalKey();
+  GlobalKey _trashFirstKey2 = GlobalKey();
+  GlobalKey _trashSecondKey2 = GlobalKey();
+  GlobalKey _trashThirdKey2 = GlobalKey();
+  GlobalKey _trashFirstKey3 = GlobalKey();
+  GlobalKey _trashSecondKey3 = GlobalKey();
+  GlobalKey _trashThirdKey3 = GlobalKey();
   List<Match> mockData;
-
+  
   MatchGenerator() {
     mockData = [
       Match(
@@ -802,6 +802,7 @@ class MatchGenerator {
     match.options.shuffle();
     return match;
   }
+
 }
 
 class Match {
