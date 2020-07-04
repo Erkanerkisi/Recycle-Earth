@@ -74,7 +74,7 @@ class _HomePageState extends State<HomePage> {
         playWrongAnswer();
       });
       if (remainingHealth < 10) {
-
+        _timer.cancel();
         Navigator.push(
           context,
           MaterialPageRoute(
