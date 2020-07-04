@@ -7,6 +7,7 @@ import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'error_page.dart';
 import 'health_stick.dart';
+import 'dart:async';
 
 class HomePage extends StatefulWidget {
   @override
@@ -23,12 +24,16 @@ class _HomePageState extends State<HomePage> {
   bool _visibleErrorPage = false;
   int remainingHealth = 100;
   int totalHealth = 100;
+  Timer _timer;
+  int _start = 5;
 
   @override
   void initState() {
     _matchGenerator = MatchGenerator();
     setState(() {
       match = _matchGenerator.getRandomMatch();
+      _start = 5;
+      startTimer();
     });
   }
 
@@ -121,6 +126,7 @@ class _HomePageState extends State<HomePage> {
             onEnd: () {
               setState(() {
                 _visibleErrorPage = false;
+                _start = 5;
               });
             },
           ),
@@ -131,6 +137,7 @@ class _HomePageState extends State<HomePage> {
             onEnd: () {
               setState(() {
                 _visibleSuccessPage = false;
+                _start = 5;
               });
             },
           ),
@@ -148,6 +155,10 @@ class _HomePageState extends State<HomePage> {
                   duration: 350,
                   barHeight: 20,
                   barRadius: 7,
+                ),
+                Text(
+                  "Time:   $_start",
+                  style: TextStyle(color: Colors.white, fontSize: 15),
                 ),
               ],
             ),
@@ -185,5 +196,40 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
     );
+  }
+
+  void startTimer() {
+    const oneSec = const Duration(seconds: 1);
+    _timer = new Timer.periodic(
+      oneSec,
+          (Timer timer) => setState(
+            () {
+          if (_start < 1) {
+            remainingHealth = remainingHealth - 20;
+            resetMatch();
+            _start = 5;
+            if (remainingHealth < 10) {
+              timer.cancel();
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        EndGamePage(
+                          score: counter,
+                        )),
+              );
+            }
+          } else {
+            _start = _start - 1;
+          }
+        },
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
   }
 }

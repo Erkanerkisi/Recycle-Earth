@@ -17,7 +17,7 @@ class InfoPage extends StatelessWidget {
         elevation: 10,
       ),
       backgroundColor: const Color(0xff21315a),
-      body: Stack(children: <Widget>[
+      body: ListView(children: <Widget>[
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
@@ -25,7 +25,7 @@ class InfoPage extends StatelessWidget {
               children: <Widget>[
                 CustomOption(
                     ci: CustomImage(
-                  image: "paper_trash.png",
+                  image: "recyclebinimages/recycling_bin_paper.png",
                 )),
                 Container(
                     width: MediaQuery.of(context).size.width * 0.6,
@@ -39,7 +39,7 @@ class InfoPage extends StatelessWidget {
               children: <Widget>[
                 CustomOption(
                     ci: CustomImage(
-                  image: "plastic_trash.png",
+                  image: "recyclebinimages/recycling_bin_plastic.png",
                 )),
                 Container(
                   width: MediaQuery.of(context).size.width * 0.6,
@@ -54,7 +54,7 @@ class InfoPage extends StatelessWidget {
               children: <Widget>[
                 CustomOption(
                     ci: CustomImage(
-                  image: "metal_trash.png",
+                  image: "recyclebinimages/recycling_bin_metal.png",
                 )),
                 Container(
                     width: MediaQuery.of(context).size.width * 0.6,
@@ -68,7 +68,7 @@ class InfoPage extends StatelessWidget {
               children: <Widget>[
                 CustomOption(
                     ci: CustomImage(
-                  image: "glass_trash.png",
+                  image: "recyclebinimages/recycling_bin_glass.png",
                 )),
                 Container(
                     width: MediaQuery.of(context).size.width * 0.6,
@@ -77,7 +77,35 @@ class InfoPage extends StatelessWidget {
                         sentence:
                             "Glass recycling bins are generally used to collect glass recyclables such as glass bottles and jars"))
               ],
-            )
+            ),
+            Row(
+              children: <Widget>[
+                CustomOption(
+                    ci: CustomImage(
+                      image: "recyclebinimages/recycling_bin_e-waste.png",
+                    )),
+                Container(
+                    width: MediaQuery.of(context).size.width * 0.6,
+                    child: TypeWriter(
+                        milliseconds: 3000,
+                        sentence:
+                        "E-waste recycling is the process of recovering material from old electronic devices to use in new products."))
+              ],
+            ),
+            Row(
+              children: <Widget>[
+                CustomOption(
+                    ci: CustomImage(
+                      image: "recyclebinimages/recycling_bin_organic.png",
+                    )),
+                Container(
+                    width: MediaQuery.of(context).size.width * 0.6,
+                    child: TypeWriter(
+                        milliseconds: 3000,
+                        sentence:
+                        "Organics recycling is the recycling of organic material- anything that was once alive- into compost, a special soil amendment."))
+              ],
+            ),
           ],
         ),
       ]),
