@@ -16,6 +16,19 @@ class EndGamePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Container(
+            width: 300,
+            height: 300,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage("assets/images/aglayan_dunya.png"),
+                fit: BoxFit.fill,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 50,
+          ),
+          Container(
               padding: EdgeInsets.only(left: 20, right: 20),
               child: Text(
                 "Game Over. Your score is $score",
