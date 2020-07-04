@@ -206,6 +206,7 @@ class _HomePageState extends State<HomePage> {
             () {
           if (_start < 1) {
             remainingHealth = remainingHealth - 20;
+            playWrongAnswer();
             resetMatch();
             _start = 5;
             if (remainingHealth < 10) {
