@@ -31,7 +31,7 @@ class EndGamePage extends StatelessWidget {
           Container(
               padding: EdgeInsets.only(left: 20, right: 20),
               child: Text(
-                "Game Over. Your score is $score",
+                "Your score is $score",
                 style: TextStyle(fontSize: 20, color: Colors.white),
               )),
           SizedBox(
