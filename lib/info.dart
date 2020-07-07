@@ -82,7 +82,7 @@ class _InfoPageState extends State<InfoPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text("PandemicKillers")),
+        title: Center(child: Text("Recycle Earth")),
         backgroundColor: Colors.teal,
         elevation: 10,
       ),

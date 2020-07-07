@@ -100,7 +100,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("PandemicKillers"),
+        title: Text("Recycle Earth"),
         backgroundColor: Colors.indigo,
         elevation: 10,
       ),
