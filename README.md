@@ -1,16 +1,19 @@
-# flutter_hack
+# Recycle Earth
 
-A new Flutter project.
+This Project is created for #Hack20 hackathon with flutter. After hackathon, name changed to Recycle Earth and new features have been added and released to store.
+
+https://flutterhackathon.com
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Flutter run. 
 
-A few resources to get you started if this is your first Flutter project:
+## Screenshots
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+<img src="https://user-images.githubusercontent.com/22741824/86910345-3aeed180-c122-11ea-97df-0fe198b0f29a.png" width="378" height="700">
+<img src="https://user-images.githubusercontent.com/22741824/86910377-4cd07480-c122-11ea-9b16-497cc8c68cd8.png" width="378" height="700">
+<img src="https://user-images.githubusercontent.com/22741824/86910382-4d690b00-c122-11ea-9c09-1fd494075cbb.png" width="378" height="700">
+<img src="https://user-images.githubusercontent.com/22741824/86910385-4e01a180-c122-11ea-81af-732ef93abbee.png" width="378" height="700">
+<img src="https://user-images.githubusercontent.com/22741824/86910386-4e01a180-c122-11ea-9a53-14496f9cf42c.png" width="378" height="700">
+<img src="https://user-images.githubusercontent.com/22741824/86910387-4e9a3800-c122-11ea-9491-bb976c838a5c.png" width="378" height="700">
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
