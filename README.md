@@ -6,9 +6,18 @@ https://flutterhackathon.com
 
 ## Getting Started
 
+The game is simple. Read the guide, seperate the trash and throw to the correct bin. 
+
+## Instructions
+
 Flutter run. 
 
-## Screenshots
+## Mascot Of The Game
+
+![earth](https://user-images.githubusercontent.com/22741824/86948296-971f1900-c155-11ea-92f7-9ed856f8a973.gif)
+
+
+## App Screenshots
 
 <img src="https://user-images.githubusercontent.com/22741824/86910345-3aeed180-c122-11ea-97df-0fe198b0f29a.png" width="378" height="700">
 <img src="https://user-images.githubusercontent.com/22741824/86910377-4cd07480-c122-11ea-9b16-497cc8c68cd8.png" width="378" height="700">
