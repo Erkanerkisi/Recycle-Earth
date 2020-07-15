@@ -15,8 +15,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _offsetAdjustmentx = 60;
-  int _offsetAdjustmenty = 25;
+  int _offsetAdjustmentxstart = 60;
+  int _offsetAdjustmentxend = 30;
+  int _offsetAdjustmentstart = 60;
+  int _offsetAdjustmentend = 70;
   int counter = 0;
   Match match;
   MatchGenerator _matchGenerator;
@@ -53,11 +55,15 @@ class _HomePageState extends State<HomePage> {
     for (CustomOption cs in match.options) {
       RenderBox box = cs.keyVal.currentContext.findRenderObject();
       Offset position = box.localToGlobal(Offset.zero);
+      print("position.dx -> " + position.dx.toString());
+      print("position.dy -> " + position.dy.toString());
+      print("dragDetails.offset.dx -> " + dragDetails.offset.dx.toString());
+      print("dragDetails.offset.dy -> " + dragDetails.offset.dy.toString());
       if (cs.isRight &&
-          position.dx - _offsetAdjustmentx < dragDetails.offset.dx &&
-          position.dx > dragDetails.offset.dx &&
-          position.dy - _offsetAdjustmenty < dragDetails.offset.dy &&
-          position.dy + _offsetAdjustmenty > dragDetails.offset.dy) {
+          position.dx - _offsetAdjustmentxstart < dragDetails.offset.dx &&
+          position.dx + _offsetAdjustmentxend > dragDetails.offset.dx &&
+          position.dy - _offsetAdjustmentstart < dragDetails.offset.dy &&
+          position.dy + _offsetAdjustmentend > dragDetails.offset.dy) {
         setState(() {
           match = _matchGenerator.getRandomMatch();
           counter++;
