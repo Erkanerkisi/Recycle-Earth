@@ -1,4 +1,4 @@
-package com.example.flutter_hack
+package com.coderals.recycleearth
 
 import io.flutter.embedding.android.FlutterActivity
 
