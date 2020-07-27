@@ -2,12 +2,18 @@ import 'package:flutter/material.dart';
 
 import 'home.dart';
 import 'info_page.dart';
+import 'ads-helper.dart';
 
-class EndGamePage extends StatelessWidget {
+class EndGamePage extends StatefulWidget {
   EndGamePage({this.score});
 
   final int score;
 
+  @override
+  _EndGamePageState createState() => _EndGamePageState();
+}
+
+class _EndGamePageState extends State<EndGamePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +37,7 @@ class EndGamePage extends StatelessWidget {
           Container(
               padding: EdgeInsets.only(left: 20, right: 20),
               child: Text(
-                "Your score is $score",
+                "Your score is ${widget.score}",
                 style: TextStyle(fontSize: 20, color: Colors.white),
               )),
           SizedBox(
@@ -50,7 +56,7 @@ class EndGamePage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => HomePage()),
-                  );
+                  ).then((value) => {AdsHelper.showBannerAd()});
                 },
                 color: Colors.lightBlue,
                 shape: RoundedRectangleBorder(
@@ -74,7 +80,7 @@ class EndGamePage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => InfoPage()),
-                  );
+                  ).then((value) => {AdsHelper.showBannerAd()});
                 },
                 color: Colors.pinkAccent,
                 shape: RoundedRectangleBorder(
@@ -83,8 +89,21 @@ class EndGamePage extends StatelessWidget {
               ),
             ),
           ),
+          SizedBox(
+            height: 50,
+          ),
         ],
       ),
     );
+  }
+
+  @override
+  void initState() {
+    AdsHelper.showBannerAd();
+    super.initState();
+  }
+
+  void dispose() {
+    super.dispose();
   }
 }

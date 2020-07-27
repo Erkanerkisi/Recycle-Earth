@@ -5,6 +5,7 @@ import 'package:flutter_hack/custom_option.dart';
 import 'package:flutter_hack/success_page.dart';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'ads-helper.dart';
 import 'error_page.dart';
 import 'health_stick.dart';
 import 'dart:async';
@@ -31,6 +32,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
+    AdsHelper.hideBannerAd();
     _matchGenerator = MatchGenerator();
     setState(() {
       match = _matchGenerator.getRandomMatch();
@@ -55,10 +57,6 @@ class _HomePageState extends State<HomePage> {
     for (CustomOption cs in match.options) {
       RenderBox box = cs.keyVal.currentContext.findRenderObject();
       Offset position = box.localToGlobal(Offset.zero);
-      print("position.dx -> " + position.dx.toString());
-      print("position.dy -> " + position.dy.toString());
-      print("dragDetails.offset.dx -> " + dragDetails.offset.dx.toString());
-      print("dragDetails.offset.dy -> " + dragDetails.offset.dy.toString());
       if (cs.isRight &&
           position.dx - _offsetAdjustmentxstart < dragDetails.offset.dx &&
           position.dx + _offsetAdjustmentxend > dragDetails.offset.dx &&
@@ -185,7 +183,6 @@ class _HomePageState extends State<HomePage> {
                       child: match.matchImage,
                     ),
                     onDragCompleted: () {
-                      print("Drag comp");
                     },
                     onDragEnd: (dragDetails) {
                       checkDragIsSuccess(dragDetails, context);
