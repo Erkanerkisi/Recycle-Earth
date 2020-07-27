@@ -146,7 +146,6 @@ class _InfoPageState extends State<InfoPage> {
                       child: match.matchImage,
                     ),
                     onDragCompleted: () {
-                      print("Drag comp");
                     },
                     onDragEnd: (dragDetails) {
                       checkDragIsSuccess(dragDetails, context);

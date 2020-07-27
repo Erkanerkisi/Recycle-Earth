@@ -3,11 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hack/start_page.dart';
 import 'package:flutter_hack/type_writer.dart';
 
+import 'ads-helper.dart';
 import 'custom_image.dart';
 import 'custom_option.dart';
 import 'home.dart';
 
-class InfoPage extends StatelessWidget {
+class InfoPage extends StatefulWidget {
+  @override
+  _InfoPageState createState() => _InfoPageState();
+}
+
+class _InfoPageState extends State<InfoPage> {
+  @override
+  void initState() {
+    AdsHelper.hideBannerAd();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

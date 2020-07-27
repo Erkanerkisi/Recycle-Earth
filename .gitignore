@@ -32,9 +32,14 @@
 
 # Web related
 lib/generated_plugin_registrant.dart
+lib/constants.dart
 
 # Symbolication related
 app.*.symbols
+
+#Keys
+key.properties
+google-services.json
 
 # Obfuscation related
 app.*.map.json
