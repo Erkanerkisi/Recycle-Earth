@@ -16,6 +16,16 @@ Flutter run.
 
 ![earth](https://user-images.githubusercontent.com/22741824/86948296-971f1900-c155-11ea-92f7-9ed856f8a973.gif)
 
+## Store Links
+
+<p align="left">
+<a href="https://play.google.com/store/apps/details?id=com.coderals.recycleearth&hl=en_US&gl=US">
+    <img alt="Get it on Google Play"
+         class="center"
+        height="120"
+        src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" />
+</a>
+</p>
 
 ## App Screenshots
 
